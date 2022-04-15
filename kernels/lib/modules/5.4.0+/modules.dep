@@ -1,0 +1,9 @@
+kernel/crypto/crypto_engine.ko:
+kernel/crypto/echainiv.ko:
+kernel/crypto/hmac.ko:
+kernel/crypto/sha256_generic.ko: kernel/lib/crypto/libsha256.ko
+kernel/crypto/drbg.ko:
+kernel/crypto/jitterentropy_rng.ko:
+kernel/drivers/video/backlight/lcd.ko:
+kernel/drivers/crypto/virtio/virtio_crypto.ko: kernel/crypto/crypto_engine.ko
+kernel/lib/crypto/libsha256.ko:

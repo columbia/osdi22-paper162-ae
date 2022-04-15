@@ -1,0 +1,22 @@
+FROM debian:buster
+#FROM ubuntu:xenial
+#FROM ubuntu:groovy
+
+VOLUME /root
+VOLUME /data
+
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+RUN apt update
+RUN apt install -y libapr1 libaprutil1 libpcre2-dev libevent-dev build-essential time bc flex bison tzdata
+
+VOLUME /home/alexvh
+
+ENV MYSQL_PWD kvm
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
+RUN apt install -y mariadb-server ; exit 0
+
+VOLUME /var/lib/mysql
+USER mysql
+ENTRYPOINT [ "/root/docker.sh" ]
