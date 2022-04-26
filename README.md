@@ -123,7 +123,7 @@ For each workload, on Seattle run:
 
 --enclave must be used for scenarios involving BlackBox enclaves.
 ```
-This script resides in ``/root``.
+This script resides in ``/root``. After each workload, ensure that the Docker container created for that workload is stopped before starting a new workload. This can be achieved by running ``docker stop $(docker ps -q)`` on Seattle.
 
 
 For each workload on the server, run the respective workload's script on the
