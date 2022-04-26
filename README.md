@@ -11,7 +11,7 @@ Below is an example of how to run the Apache workload inside an enclaved
 BlackBox container after providing us with your public ssh key.
 
 ```
-ssh libation@cs.columbia.edu
+ssh sekvm@libation.cs.columbia.edu
 tmux attach
 [switch to tab 0, right pane]
 reboot
